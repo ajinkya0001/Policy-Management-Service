@@ -1,0 +1,27 @@
+.page-card{
+
+    background:white;
+
+    border-radius:var(--border-radius);
+
+    box-shadow:var(--box-shadow);
+
+    padding:30px;
+
+}
+
+.page-title{
+
+    font-size:32px;
+
+    font-weight:600;
+
+}
+
+.section-title{
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
