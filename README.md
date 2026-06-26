@@ -1,48 +1,54 @@
 # 🛡️ Policy Management System
 
-A full-stack enterprise-style Policy Management System built using **Spring Boot**, **Java 21**, **React**, **Bootstrap**, **Axios**, and **PostgreSQL**.
+A full-stack enterprise-style **Policy Management System** built using **Java 21**, **Spring Boot**, **React (Vite)**, **PostgreSQL**, and **Docker**.
 
-This application allows users to manage insurance policies through a modern web interface with complete CRUD functionality, dashboard statistics, search capabilities, and responsive design.
+The application enables users to manage insurance policies through a modern, responsive web interface with complete CRUD functionality, dashboard statistics, search, sorting, filtering, pagination, and Dockerized deployment.
 
 ---
 
-# 📌 Features
+# 🚀 Features
 
 ## Backend
 
-- RESTful CRUD APIs
-- Spring Boot 3.x
-- Java 21
-- Spring Data JPA
-- PostgreSQL
-- Bean Validation
-- Global Exception Handling
-- Swagger/OpenAPI Documentation
-- Dashboard Statistics API
+* RESTful CRUD APIs
+* Spring Boot 3.x
+* Java 21
+* Spring Data JPA
+* Hibernate ORM
+* PostgreSQL
+* Bean Validation
+* Global Exception Handling
+* DTO & Mapper Pattern
+* Dashboard Statistics API
+* Swagger / OpenAPI Documentation
 
 ---
 
 ## Frontend
 
-- React (Vite)
-- Bootstrap 5
-- React Router
-- Axios
-- Responsive Layout
-- Sidebar Navigation
-- Header & Footer
-- Dashboard
-- Policy List
-- Add Policy
-- Edit Policy
-- View Policy Details
-- Search Policies
-- Delete Confirmation Modal
-- Toast Notifications
-- Loader Component
-- Empty State Component
-- Currency Formatting
-- Dynamic Status Badges
+* React (Vite)
+* Bootstrap 5
+* React Bootstrap
+* React Router DOM
+* Axios
+* Responsive Dashboard
+* Sidebar Navigation
+* Policy Management
+* Dashboard Statistics
+* Search Policies
+* Status Filter
+* Table Sorting
+* Pagination
+* View Policy Details
+* Add Policy
+* Edit Policy
+* Delete Policy
+* Delete Confirmation Modal
+* Toast Notifications
+* Loading Indicator
+* Empty State Component
+* Currency Formatting
+* Dynamic Status Badges
 
 ---
 
@@ -50,78 +56,59 @@ This application allows users to manage insurance policies through a modern web 
 
 ## Backend
 
-- Java 21
-- Spring Boot
-- Spring Data JPA
-- Hibernate
-- PostgreSQL
-- Maven
-- Lombok
-- Swagger (OpenAPI)
+* Java 21
+* Spring Boot
+* Spring Data JPA
+* Hibernate
+* PostgreSQL
+* Maven
+* Lombok
+* Swagger (OpenAPI)
+
+---
 
 ## Frontend
 
-- React
-- Vite
-- Bootstrap
-- Axios
-- React Router DOM
-- React Bootstrap
-- React Toastify
+* React
+* Vite
+* Bootstrap
+* React Bootstrap
+* React Router DOM
+* Axios
+* React Toastify
 
-## Tools
+---
 
-- Git
-- GitHub
-- VS Code
-- IntelliJ IDEA / Eclipse
-- Docker (In Progress)
+## DevOps & Tools
+
+* Docker
+* Docker Compose
+* Git
+* GitHub
+* IntelliJ IDEA / Eclipse
+* VS Code
+* Postman
 
 ---
 
 # 📂 Project Structure
 
-## Backend
-
 ```
-Policy-Management-Service
+Policy-Management-System
 │
-├── controller
-├── service
-├── repository
-├── entity
-├── dto
-├── mapper
-├── exception
-├── config
-└── util
-```
-
----
-
-## Frontend
-
-```
-policy-management-ui
+├── Policy-Management-Service
+│   ├── src
+│   ├── target
+│   ├── Dockerfile
+│   └── pom.xml
 │
-├── src
-│   ├── assets
-│   ├── components
-│   │     ├── common
-│   │     ├── dashboard
-│   │     ├── navbar
-│   │     ├── policy
-│   │     └── shared
-│   │
-│   ├── context
-│   ├── hooks
-│   ├── layouts
-│   ├── pages
-│   ├── routes
-│   ├── services
-│   ├── utils
-│   ├── App.jsx
-│   └── main.jsx
+├── Policy-Management-UI
+│   ├── src
+│   ├── public
+│   ├── Dockerfile
+│   └── package.json
+│
+└── docker-compose.yml
 ```
 
 ---
@@ -130,58 +117,87 @@ policy-management-ui
 
 ## Dashboard
 
-- Total Policies
-- Active Policies
-- Inactive Policies
+* Total Policies
+* Active Policies
+* Inactive Policies
 
 ---
 
 ## Policy Management
 
-- View All Policies
-- Create Policy
-- Edit Policy
-- Delete Policy
-- View Policy Details
+* View Policies
+* Add Policy
+* Update Policy
+* Delete Policy
+* View Policy Details
 
 ---
 
 ## Search
 
-Search by
+Search policies by:
 
-- Policy Number
-- Policy Holder Name
+* Policy Number
+* Policy Holder Name
+
+---
+
+## Filter
+
+* Active Policies
+* Inactive Policies
+
+---
+
+## Sorting
+
+Sort by:
+
+* Policy Number
+* Holder Name
+* Policy Type
+* Premium Amount
+* Status
+
+---
+
+## Pagination
+
+* Client-side Pagination
+* 5 Records Per Page
+* Previous / Next Navigation
 
 ---
 
 # 📸 Application Screens
 
-- Dashboard
-- Policy List
-- Add Policy
-- Edit Policy
-- View Policy
-- Delete Confirmation Modal
+* Dashboard
+* Policy List
+* Add Policy
+* Edit Policy
+* View Policy
+* Delete Confirmation Modal
 
-*(Screenshots will be added after deployment.)*
-
----
-
-# 🚀 API Endpoints
-
-| Method | Endpoint | Description |
-|----------|-----------------------------|----------------|
-| GET | /api/policies | Get All Policies |
-| GET | /api/policies/{id} | Get Policy By ID |
-| POST | /api/policies | Create Policy |
-| PUT | /api/policies/{id} | Update Policy |
-| DELETE | /api/policies/{id} | Delete Policy |
-| GET | /api/policies/dashboard | Dashboard Statistics |
+> Screenshots will be added after deployment.
 
 ---
 
-# ▶️ Running Backend
+# 🌐 REST API Endpoints
+
+| Method | Endpoint                  | Description          |
+| ------ | ------------------------- | -------------------- |
+| GET    | `/api/policies`           | Get All Policies     |
+| GET    | `/api/policies/{id}`      | Get Policy By ID     |
+| POST   | `/api/policies`           | Create Policy        |
+| PUT    | `/api/policies/{id}`      | Update Policy        |
+| DELETE | `/api/policies/{id}`      | Delete Policy        |
+| GET    | `/api/policies/dashboard` | Dashboard Statistics |
+
+---
+
+# ▶️ Run Locally
+
+## Backend
 
 ```bash
 mvn clean install
@@ -189,7 +205,7 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-Runs on
+Runs on:
 
 ```
 http://localhost:8080
@@ -197,7 +213,7 @@ http://localhost:8080
 
 ---
 
-# ▶️ Running Frontend
+## Frontend
 
 ```bash
 npm install
@@ -205,7 +221,7 @@ npm install
 npm run dev
 ```
 
-Runs on
+Runs on:
 
 ```
 http://localhost:5173
@@ -213,39 +229,27 @@ http://localhost:5173
 
 ---
 
-# 🗄️ Database
+# 🗄️ PostgreSQL Configuration
 
-Database
-
-```
-PostgreSQL
-```
-
-Configure
-
-```
-application.properties
-```
-
-Example
+Configure the database in `application.properties`.
 
 ```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/policydb
 spring.datasource.username=postgres
-spring.datasource.password=******
+spring.datasource.password=your_password
 ```
 
 ---
 
-# 📖 Swagger
+# 📖 API Documentation
 
-Swagger UI
+## Swagger UI
 
 ```
 http://localhost:8080/swagger-ui/index.html
 ```
 
-OpenAPI Docs
+## OpenAPI Docs
 
 ```
 http://localhost:8080/v3/api-docs
@@ -253,31 +257,49 @@ http://localhost:8080/v3/api-docs
 
 ---
 
-# 🚧 Upcoming Enhancements
+# 🐳 Docker
 
-- Sorting
-- Pagination
-- Status Filter
-- Docker Compose
-- Deployment
-- CI/CD Pipeline
-- Playwright End-to-End Testing
-- Authentication & Authorization
-- Role-Based Access Control
-- Reports & Analytics
+The application is fully containerized using Docker.
+
+## Docker Images
+
+* Spring Boot Backend
+* React Frontend
+* PostgreSQL Database
 
 ---
 
-# 🐳 Docker
+## Docker Compose
 
-Docker support has been initiated.
+Start the complete application:
 
-Upcoming
+```bash
+docker compose up --build
+```
 
-- Backend Docker Container
-- Frontend Docker Container
-- PostgreSQL Docker Container
-- Docker Compose
+Run in detached mode:
+
+```bash
+docker compose up -d
+```
+
+Stop containers:
+
+```bash
+docker compose down
+```
+
+View running containers:
+
+```bash
+docker ps
+```
+
+View logs:
+
+```bash
+docker compose logs -f
+```
 
 ---
 
@@ -285,17 +307,41 @@ Upcoming
 
 This project demonstrates:
 
-- Enterprise REST API Development
-- Layered Architecture
-- DTO Pattern
-- Repository Pattern
-- Exception Handling
-- Frontend Component Architecture
-- React Routing
-- State Management
-- API Integration
-- Responsive UI Design
-- Full Stack Development
+* Enterprise REST API Development
+* Layered Architecture
+* DTO Pattern
+* Repository Pattern
+* Exception Handling
+* React Component Architecture
+* React Routing
+* State Management
+* REST API Integration
+* Responsive UI Development
+* Docker Image Creation
+* Docker Compose
+* Docker Networking
+* Persistent Volumes
+* Full Stack Containerization
+
+---
+
+# 🚀 Upcoming Enhancements
+
+* JWT Authentication
+* Spring Security
+* Role-Based Access Control
+* Claims Management Module
+* Reports Module
+* User Management
+* Email Notifications
+* Multi-stage Docker Builds
+* Nginx Reverse Proxy
+* Docker Hub
+* AWS EC2 Deployment
+* GitHub Actions CI/CD
+* Jenkins Pipeline
+* Kubernetes
+* Playwright End-to-End Testing
 
 ---
 
@@ -303,29 +349,51 @@ This project demonstrates:
 
 **Ajinkya Jadkar**
 
-Full Stack Java Developer
+**Full Stack Java Developer**
 
-Tech Stack
+### Skills
 
-- Java
-- Spring Boot
-- React
-- PostgreSQL
-- Docker
-- Git
-- Playwright
+* Java
+* Spring Boot
+* React
+* PostgreSQL
+* Docker
+* Docker Compose
+* Git & GitHub
+* REST APIs
+* Playwright
+* Maven
 
 ---
 
-# ⭐ Future Scope
+# ⭐ Project Status
 
-- JWT Authentication
-- Role Management
-- Claims Module
-- Reports Module
-- User Management
-- Notification Service
-- Email Integration
-- Docker Deployment
-- Kubernetes
-- Jenkins CI/CD
+✅ Backend Completed
+
+✅ Frontend Completed
+
+✅ CRUD Operations
+
+✅ Dashboard
+
+✅ Search
+
+✅ Filtering
+
+✅ Sorting
+
+✅ Pagination
+
+✅ Dockerized Backend
+
+✅ Dockerized Frontend
+
+✅ Dockerized PostgreSQL
+
+✅ Docker Compose Integration
+
+🚧 AWS Deployment (Next Phase)
+
+🚧 CI/CD Pipeline
+
+🚧 Kubernetes
