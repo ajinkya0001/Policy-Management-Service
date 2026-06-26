@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
-import { Button, Row, Col, Form } from "react-bootstrap";
+// import { Button, Row, Col, Form } from "react-bootstrap";
 import { PlusCircle } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import {
+    Button,
+    Row,
+    Col,
+    Form,
+    Pagination
+} from "react-bootstrap";
 
 import policyService from "../services/policyService";
 import PolicyTable from "../components/policy/PolicyTable";
@@ -135,6 +142,11 @@ const PolicyList = () => {
         indexOfFirst,
         indexOfLast
     );
+    const totalPages = Math.ceil(sortedPolicies.length / pageSize);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
 
     return (
         <>
@@ -156,7 +168,10 @@ const PolicyList = () => {
                             type="text"
                             placeholder="Search..."
                             value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={(e) => {
+                                setSearchTerm(e.target.value);
+                                setCurrentPage(1);
+                            }}
                         />
 
                     </Col>
@@ -165,7 +180,10 @@ const PolicyList = () => {
 
                         <Form.Select
                             value={statusFilter}
-                            onChange={(e) => setStatusFilter(e.target.value)}
+                            onChange={(e) => {
+                                setStatusFilter(e.target.value);
+                                setCurrentPage(1);
+                            }}
                         >
                             <option value="ALL">All Status</option>
                             <option value="ACTIVE">Active</option>
@@ -184,6 +202,39 @@ const PolicyList = () => {
                     onDelete={handleDelete}
                     onSort={handleSort}
                 />
+                <Row className="mt-4">
+
+                    <Col className="d-flex justify-content-end">
+
+                        <Pagination>
+
+                            <Pagination.Prev
+                                disabled={currentPage === 1}
+                                onClick={() => handlePageChange(currentPage - 1)}
+                            />
+
+                            {[...Array(totalPages)].map((_, index) => (
+
+                                <Pagination.Item
+                                    key={index + 1}
+                                    active={currentPage === index + 1}
+                                    onClick={() => handlePageChange(index + 1)}
+                                >
+                                    {index + 1}
+                                </Pagination.Item>
+
+                            ))}
+
+                            <Pagination.Next
+                                disabled={currentPage === totalPages}
+                                onClick={() => handlePageChange(currentPage + 1)}
+                            />
+
+                        </Pagination>
+
+                    </Col>
+
+            </Row>
 
             </PageContainer>
 
