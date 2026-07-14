@@ -42,9 +42,8 @@ services:
 
 
   policy-ui:
-
     build:
-      context: ./policy-management-ui
+      context: ./Policy-Management-ui
 
     container_name: policy-ui
 
@@ -52,10 +51,10 @@ services:
       - policy-api
 
     ports:
-      - "5173:5173"
+      - "80:80"
 
     networks:
-      - policy-network
+    - policy-network
 
 
 volumes:
